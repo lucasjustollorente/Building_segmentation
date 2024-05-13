@@ -14,6 +14,8 @@ from tensorflow.keras.callbacks import TensorBoard
 import segmentation_models as sm
 from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
+
+
 #%env SM_FRAMEWORK=tf.keras
 
 # Función para definir el modelo U-Net desde cero
@@ -112,3 +114,24 @@ def display_images_in_rows(images_rows, titles_rows=None):
                 axs[i, j].set_title(titles_rows[i][j])
     
     plt.show()
+
+
+def display_resized_image_and_mask(image, mask):
+    # Desempaquetar la imagen y la máscara si tienen una dimensión adicional
+    image = np.squeeze(image)
+    mask = np.squeeze(mask)
+    
+    fig, axs = plt.subplots(1, 2, figsize=(12, 6))
+    
+    # Mostrar la imagen redimensionada en el primer subplot
+    axs[0].imshow(image)
+    axs[0].axis('off')
+    axs[0].set_title('Resized Image')
+    
+    # Mostrar la máscara predicha en el segundo subplot
+    axs[1].imshow(mask)
+    axs[1].axis('off')
+    axs[1].set_title('Predicted Mask')
+    
+    plt.show()
+
