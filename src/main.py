@@ -1,4 +1,4 @@
-from model_utils import define_custom_unet, train_custom_unet, train_pretrained_unet
+from model_utils import define_custom_unet, train_custom_unet, train_pretrained_unet, predict_images, display_images_in_rows
 from data_utils import filter_images_by_white_percentage, filter_images_simple, calculate_white_percentage
 import os
 import argparse
@@ -36,9 +36,9 @@ if __name__ == '__main__':
     data_path_val_mask = "png/val_labels"
         
     if args.preprocess == 'white_percentage':
-        X_train, Y_train = filter_images_white_percentage(data_path_train, data_path_train_mask, height_shape, width_shape, white_threshold)
-        X_test, Y_test = filter_images_white_percentage(data_path_test, data_path_test_mask, height_shape, width_shape, white_threshold)
-        X_val, Y_val = filter_images_white_percentage(data_path_val, data_path_val_mask, height_shape, width_shape, white_threshold)
+        X_train, Y_train = filter_images_by_white_percentage(data_path_train, data_path_train_mask, height_shape, width_shape, white_threshold)
+        X_test, Y_test = filter_images_by_white_percentage(data_path_test, data_path_test_mask, height_shape, width_shape, white_threshold)
+        X_val, Y_val = filter_images_by_white_percentage(data_path_val, data_path_val_mask, height_shape, width_shape, white_threshold)
 
     else:
         X_train, Y_train = filter_images_simple(data_path_train, data_path_train_mask, height_shape, width_shape)
@@ -48,15 +48,32 @@ if __name__ == '__main__':
 
     if args.model_type == 'pretrained':
         model, results = train_pretrained_unet(X_train, Y_train, X_test, Y_test, 'resnet50', args.epochs)
-        model_name = f'{args.model_type}_unet_{args.epochs}epochs.h5'
-        model.save(os.path.join('saved_models', model_name))
-        model.load_weights(os.path.join('saved_models', f'weights_{model_name}'))
+        model_name = f'{args.model_type}_unet_{args.epochs}epochs'
+        model.save(os.path.join('saved_models', f'{model_name}.h5'))
+        model.save_weights(os.path.join('saved_models', f'weights_{model_name}.weights.h5'))
 
     else:
         model, results = train_custom_unet(X_train, Y_train, X_test, Y_test, height_shape, width_shape, args.epochs)
-        model_name = f'{args.model_type}_unet_{args.epochs}epochs.h5'
-        model.save(os.path.join('saved_models', model_name))
-        model.load_weights(os.path.join('saved_models', f'weights_{model_name}'))
+        model_name = f'{args.model_type}_unet_{args.epochs}epochs'
+        model.save(os.path.join('saved_models', f'{model_name}.h5'))
+        model.save_weights(os.path.join('saved_models', f'weights_{model_name}.weights.h5'))
+
+    # Predecir las máscaras de las imágenes de validación
+    Y_val_pred = predict_images(model, X_val)
+       # Prepare images and titles for visualization
+    images_rows = []
+    titles_rows = []
+    for idx in range(len(X_val)):
+        input_image = X_val[idx]
+        ground_truth_mask = np.squeeze(Y_val[idx])
+        predicted_mask = np.squeeze(Y_val_pred[idx])
+        images_row = [input_image, ground_truth_mask, predicted_mask]
+        titles_row = ["Input Image", "Ground Truth Mask", "Predicted Mask"]
+        images_rows.append(images_row)
+        titles_rows.append(titles_row)
+
+    # Display the images in rows of three
+    display_images_in_rows(images_rows, titles_rows)
 
 ## python src/main.py --model_type from_scratch --epochs 1 --preprocess simple
 

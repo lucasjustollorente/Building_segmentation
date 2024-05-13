@@ -13,6 +13,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.callbacks import TensorBoard
 import segmentation_models as sm
 from tensorflow.keras.models import load_model
+import matplotlib.pyplot as plt
 #%env SM_FRAMEWORK=tf.keras
 
 # Función para definir el modelo U-Net desde cero
@@ -94,3 +95,20 @@ def train_pretrained_unet(X_train, Y_train, X_test, Y_test, backbone, epochs):
 
     results = model.fit(x=X_train, y=Y_train, batch_size=16, epochs=epochs, validation_data=(X_test, Y_test))
     return model, results
+
+def predict_images(model, X_val):
+    preds = model.predict(X_val)
+    return preds
+
+def display_images_in_rows(images_rows, titles_rows=None):
+    num_rows = len(images_rows)
+    fig, axs = plt.subplots(num_rows, 3, figsize=(15, 5*num_rows))
+    
+    for i in range(num_rows):
+        for j in range(3):
+            axs[i, j].imshow(images_rows[i][j])
+            axs[i, j].axis('off')
+            if titles_rows and i < len(titles_rows) and j < len(titles_rows[i]):
+                axs[i, j].set_title(titles_rows[i][j])
+    
+    plt.show()
