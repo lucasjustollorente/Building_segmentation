@@ -47,23 +47,19 @@ To begin, follow these steps to set up the environment and run the scripts:
    
    To train a U-Net model:
 
-   ```bash`
-   python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage
-
-
    --model_type: Type of U-Net model (pretrained or from_scratch).
 
    --epochs: Number of epochs to train.
 
    --preprocess: Preprocessing method for filtering images (white_percentage or simple).
 
+     ```bash
+   python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage
+
+
    ## Making Predictions
    
    To make predictions using a trained model:
-
-   ```bash`
-   python src/predict.py --model_path saved_models/model_name.h5 --image_path path_to_image.png/.tif --preprocess white_percentage
-
 
    --model_path: Path to the saved model or weights file.
 
@@ -71,8 +67,10 @@ To begin, follow these steps to set up the environment and run the scripts:
 
    --preprocess: Preprocessing method for image filtering (white_percentage or simple).
 
-
    If you do not specify the image_path the code will run making the predictions with the images in the val path.
+
+    ```bash
+   python src/predict.py --model_path saved_models/model_name.h5 --image_path path_to_image.png/.tif --preprocess white_percentage
 
    ## Notes
 
@@ -85,8 +83,8 @@ To begin, follow these steps to set up the environment and run the scripts:
    Example
    Train a U-Net model from scratch for 50 epochs with simple image preprocessing:
 
-   ```bash```
-   python src/main.py --model_type from_scratch --epochs 50 --preprocess simple
+   ```bash
+   python src/main.py --model_type from_scratch --epochs 50 --preprocess simple.
 
    ## Results
    Upon completion, the training process will print the final accuracy metrics for both training and validation sets.
