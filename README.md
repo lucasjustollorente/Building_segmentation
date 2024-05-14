@@ -47,11 +47,11 @@ To begin, follow these steps to set up the environment and run the scripts:
    
    To train a U-Net model:
 
-   --model_type: Type of U-Net model (pretrained or from_scratch). Type of U-Net model to use. Use pretrained for a model that is pretrained using 'resnet50' as the backbone and encoder weights from 'imagenet', or from_scratch to train a U-Net model from scratch.
+   --model_type: Type of U-Net model (``pretrained`` or ``from_scratch``). Type of U-Net model to use. Use pretrained for a model that is pretrained using 'resnet50' as the backbone and encoder weights from 'imagenet', or from_scratch to train a U-Net model from scratch.
 
-   --epochs: Number of epochs to train.
+   --epochs: Number of ``epochs`` to train.
 
-   --preprocess: Preprocessing method for filtering images (white_percentage or simple). Choosing white_percentage involves a more complex preprocessing step that uses a threshold to filter training images    
+   --preprocess: Preprocessing method for filtering images (``white_percentage`` or ``simple``). Choosing white_percentage involves a more complex preprocessing step that uses a threshold to filter training images    
     with large white areas, potentially improving the final accuracy of the model.
 
      
