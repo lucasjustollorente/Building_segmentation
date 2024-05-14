@@ -74,7 +74,7 @@ To begin, follow these steps to set up the environment and run the scripts:
     python src/predict.py --model_path 'saved_models/pretrained_unet_75epochs.weights.h5' --image_path 'input_image_path/test_1m_San_Diego.tif'
 
     
-    ![image](https://github.com/lucasjustollorente/Building_segmentation/assets/144033748/a7e5dab8-c6e4-4a05-b453-4b62071965a2)
+   ![image](https://github.com/lucasjustollorente/Building_segmentation/assets/144033748/a7e5dab8-c6e4-4a05-b453-4b62071965a2)
 
 
    ## Notes
