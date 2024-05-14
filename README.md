@@ -47,7 +47,7 @@ To begin, follow these steps to set up the environment and run the scripts:
    
    To train a U-Net model:
 
-   ```bash
+   ```bash`
    python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage
 
 
@@ -61,7 +61,7 @@ To begin, follow these steps to set up the environment and run the scripts:
    
    To make predictions using a trained model:
 
-   ```bash
+   ```bash`
    python src/predict.py --model_path saved_models/model_name.h5 --image_path path_to_image.png/.tif --preprocess white_percentage
 
 
