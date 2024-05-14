@@ -1,7 +1,5 @@
 ## Building Footprints - Segmentación de Imágenes Satelitales
 
-# Building Footprints - Satellite Image Segmentation
-
 This repository provides tools and scripts for training and using U-Net models to perform satellite image segmentation for identifying building footprints.
 
 ## Getting Started
