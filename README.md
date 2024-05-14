@@ -53,7 +53,7 @@ To begin, follow these steps to set up the environment and run the scripts:
 
    --preprocess: Preprocessing method for filtering images (white_percentage or simple).
 
-     ``` 
+     
      python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage
 
 
@@ -69,7 +69,7 @@ To begin, follow these steps to set up the environment and run the scripts:
 
    If you do not specify the image_path the code will run making the predictions with the images in the val path.
 
-    ```
+    
     python src/predict.py --model_path saved_models/model_name.h5 --image_path path_to_image.png/.tif --preprocess white_percentage
 
    ## Notes
