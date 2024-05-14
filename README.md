@@ -100,6 +100,7 @@ To begin, follow these steps to set up the environment and run the scripts:
 
    ## Results
    Upon completion, the training process will print the final accuracy metrics for both training and validation sets.
+   Both the "from_scratch" and "pretrained" models achieve high accuracy on the test set, with over 90% accuracy. The pretrained model performs slightly better because it can more accurately detect finer details such as building edges.
 
    ## Further Customization
    Feel free to modify the scripts (main.py and predict.py) to add more functionalities or adapt the model architecture based on specific project requirements.
