@@ -71,7 +71,11 @@ To begin, follow these steps to set up the environment and run the scripts:
    If you do not specify the image_path the code will run making the predictions with the images in the val path.
 
     
-    python src/predict.py --model_path saved_models/model_name.h5 --image_path path_to_image.png/.tif --preprocess white_percentage
+    python src/predict.py --model_path 'saved_models/pretrained_unet_75epochs.weights.h5' --image_path 'input_image_path/test_1m_San_Diego.tif'
+
+    
+    ![image](https://github.com/lucasjustollorente/Building_segmentation/assets/144033748/a7e5dab8-c6e4-4a05-b453-4b62071965a2)
+
 
    ## Notes
 
