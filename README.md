@@ -54,7 +54,7 @@ To begin, follow these steps to set up the environment and run the scripts:
    --epochs: Number of epochs to train.
 
    --preprocess: Preprocessing method for filtering images (white_percentage or simple). Choosing white_percentage involves a more complex preprocessing step that uses a threshold to filter training images    
-   with large white areas, potentially improving the final accuracy of the model.
+    with large white areas, potentially improving the final accuracy of the model.
 
      
      python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage
