@@ -46,10 +46,11 @@ To begin, follow these steps to set up the environment and run the scripts:
    ``notebooks:`` Additional notebooks for testing and experimentation.
 
 4. **Usage**
+5. 
    To train a U-Net model:
 
    ```bash
-   python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage``
+   python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage
 
    --model_type: Type of U-Net model (pretrained or from_scratch).
 
@@ -57,7 +58,7 @@ To begin, follow these steps to set up the environment and run the scripts:
 
    --preprocess: Preprocessing method for filtering images (white_percentage or simple).
 
-5. **Making Predictions**
+6. **Making Predictions**
    To make predictions using a trained model:
 
    ```bash
@@ -71,7 +72,7 @@ To begin, follow these steps to set up the environment and run the scripts:
 
    If you do not specify the image_path the code will run making the predictions with the images in the val path.
 
-6. **Notes**
+7. **Notes**
 
    Ensure that your data is organized within the png directory according to the specified structure (train, train_labels, test, test_labels, val, val_labels).
 
