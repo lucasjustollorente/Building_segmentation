@@ -30,23 +30,23 @@ To begin, follow these steps to set up the environment and run the scripts:
    Once the environment is set up, you can explore and use the content within Jupyter Notebook or Visual Studio Code.
 
 4. **Project Structure**
-   
-   ``png:`` Contains satellite images and their corresponding masks in PNG format, divided into train, train_labels, test, test_labels, val, and val_labels subfolders.
 
-   ``src:`` Contains Python scripts for data manipulation and model training.
+   png: Contains satellite images and their corresponding masks in PNG format, divided into train, train_labels, test, test_labels, val, and val_labels subfolders.
 
-          ``data_utils.py:`` Utility functions for preprocessing and filtering satellite images.
+   src: Contains Python scripts for data manipulation and model training.
 
-          ``model_utils.py:`` Utility functions for defining and training U-Net models.
+   data_utils.py: Utility functions for preprocessing and filtering satellite images.
+
+   model_utils.py: Utility functions for defining and training U-Net models.
           
-          ``main.py:`` Script to train different types of U-Net models.
+   main.py: Script to train different types of U-Net models.
           
-          ``predict.py:`` Script to make predictions using trained models.
+   predict.py: Script to make predictions using trained models.
 
    ``notebooks:`` Additional notebooks for testing and experimentation.
 
 4. **Usage**
-5. 
+   
    To train a U-Net model:
 
    ```bash
@@ -59,6 +59,7 @@ To begin, follow these steps to set up the environment and run the scripts:
    --preprocess: Preprocessing method for filtering images (white_percentage or simple).
 
 6. **Making Predictions**
+   
    To make predictions using a trained model:
 
    ```bash
@@ -72,7 +73,7 @@ To begin, follow these steps to set up the environment and run the scripts:
 
    If you do not specify the image_path the code will run making the predictions with the images in the val path.
 
-7. **Notes**
+ 7. **Notes**
 
    Ensure that your data is organized within the png directory according to the specified structure (train, train_labels, test, test_labels, val, val_labels).
 
@@ -83,13 +84,13 @@ To begin, follow these steps to set up the environment and run the scripts:
    Example
    Train a U-Net model from scratch for 50 epochs with simple image preprocessing:
 
-```bash
+   ```bash
    python src/main.py --model_type from_scratch --epochs 50 --preprocess simple
 
-7. **Results**
+8. **Results**
    Upon completion, the training process will print the final accuracy metrics for both training and validation sets.
 
-8. **Further Customization**
+9. **Further Customization**
 Feel free to modify the scripts (main.py and predict.py) to add more functionalities or adapt the model architecture based on specific project requirements.
 
 This README provides a comprehensive guide to setting up and using the repository for satellite image segmentation. Adjust the commands and parameters as needed to fit your use case.
