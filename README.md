@@ -17,11 +17,11 @@ To begin, follow these steps to set up the environment and run the scripts:
 
    Navigate to the project directory and create a new conda environment:
 
-   python -m venv SATELITE
+   ``python -m venv SATELITE``
    
-   SATELITE\Scripts\activate
+   ``SATELITE\Scripts\activate``
    
-   pip install -r requirements.txt
+   ``pip install -r requirements.txt``
 
    Explore the Repository:
 
@@ -29,9 +29,9 @@ To begin, follow these steps to set up the environment and run the scripts:
 
 4. **Project Structure**
 
-   png: Contains satellite images and their corresponding masks in PNG format, divided into train, train_labels, test, test_labels, val, and val_labels subfolders.
+   ``png:`` Contains satellite images and their corresponding masks in PNG format, divided into train, train_labels, test, test_labels, val, and val_labels subfolders.
 
-   src: Contains Python scripts for data manipulation and model training.
+   ``src:`` Contains Python scripts for data manipulation and model training.
 
    data_utils.py: Utility functions for preprocessing and filtering satellite images.
 
