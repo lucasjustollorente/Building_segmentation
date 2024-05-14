@@ -30,11 +30,12 @@ To begin, follow these steps to set up the environment and run the scripts:
    Once the environment is set up, you can explore and use the content within Jupyter Notebook or Visual Studio Code.
 
 4. **Project Structure**
-``png:`` Contains satellite images and their corresponding masks in PNG format, divided into train, train_labels, test, test_labels, val, and val_labels subfolders.
+   
+   ``png:`` Contains satellite images and their corresponding masks in PNG format, divided into train, train_labels, test, test_labels, val, and val_labels subfolders.
 
-``src:`` Contains Python scripts for data manipulation and model training.
+   ``src:`` Contains Python scripts for data manipulation and model training.
 
-          `data_utils.py:`` Utility functions for preprocessing and filtering satellite images.
+          ``data_utils.py:`` Utility functions for preprocessing and filtering satellite images.
 
           ``model_utils.py:`` Utility functions for defining and training U-Net models.
           
@@ -42,41 +43,50 @@ To begin, follow these steps to set up the environment and run the scripts:
           
           ``predict.py:`` Script to make predictions using trained models.
 
-``notebooks:`` Additional notebooks for testing and experimentation.
+   ``notebooks:`` Additional notebooks for testing and experimentation.
 
 4. **Usage**
-Training a Model
-To train a U-Net model:
+   To train a U-Net model:
 
-bash
-Copiar código
-``python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage``
---model_type: Type of U-Net model (pretrained or from_scratch).
---epochs: Number of epochs to train.
---preprocess: Preprocessing method for filtering images (white_percentage or simple).
+   ```bash
+   python src/main.py --model_type pretrained --epochs 75 --preprocess white_percentage``
+
+   --model_type: Type of U-Net model (pretrained or from_scratch).
+
+   --epochs: Number of epochs to train.
+
+   --preprocess: Preprocessing method for filtering images (white_percentage or simple).
+
 5. **Making Predictions**
-To make predictions using a trained model:
+   To make predictions using a trained model:
 
-bash
-Copiar código
-``python src/predict.py --model_path saved_models/model_name.h5 --image_path path_to_image.png/.tif --preprocess white_percentage``
---model_path: Path to the saved model or weights file.
---image_path: Path to a single image file for prediction.
---preprocess: Preprocessing method for image filtering (white_percentage or simple).
+   ```bash
+   python src/predict.py --model_path saved_models/model_name.h5 --image_path path_to_image.png/.tif --preprocess white_percentage
 
-If you do not specify the image_path the code will run making the predictions with the images in the val path.
+   --model_path: Path to the saved model or weights file.
+
+   --image_path: Path to a single image file for prediction.
+
+   --preprocess: Preprocessing method for image filtering (white_percentage or simple).
+
+   If you do not specify the image_path the code will run making the predictions with the images in the val path.
+
 6. **Notes**
-Ensure that your data is organized within the png directory according to the specified structure (train, train_labels, test, test_labels, val, val_labels).
-Adjust parameters such as epochs and model_type according to your requirements.
-For image preprocessing, choose between white_percentage (filtering based on white pixel percentage) or simple (standard filtering).
-Example
-Train a U-Net model from scratch for 50 epochs with simple image preprocessing:
 
-bash
-Copiar código
-``python src/main.py --model_type from_scratch --epochs 50 --preprocess simple``
+   Ensure that your data is organized within the png directory according to the specified structure (train, train_labels, test, test_labels, val, val_labels).
+
+   Adjust parameters such as epochs and model_type according to your requirements.
+
+   For image preprocessing, choose between white_percentage (filtering based on white pixel percentage) or simple (standard filtering).
+
+   Example
+   Train a U-Net model from scratch for 50 epochs with simple image preprocessing:
+
+```bash
+   python src/main.py --model_type from_scratch --epochs 50 --preprocess simple
+
 7. **Results**
-Upon completion, the training process will print the final accuracy metrics for both training and validation sets.
+   Upon completion, the training process will print the final accuracy metrics for both training and validation sets.
 
 8. **Further Customization**
 Feel free to modify the scripts (main.py and predict.py) to add more functionalities or adapt the model architecture based on specific project requirements.
