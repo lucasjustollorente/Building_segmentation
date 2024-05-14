@@ -17,24 +17,29 @@ To begin, follow these steps to set up the environment and run the scripts:
 
 2. **Set Up Environment**
 
-Navigate to the project directory and create a new conda environment:
+   Navigate to the project directory and create a new conda environment:
 
-python -m venv SATELITE
-SATELITE\Scripts\activate
-pip install -r requirements.txt
+   python -m venv SATELITE
+   
+   SATELITE\Scripts\activate
+   
+   pip install -r requirements.txt
 
-Explore the Repository
+   Explore the Repository:
 
-Once the environment is set up, you can explore and use the content within Jupyter Notebook or Visual Studio Code.
+   Once the environment is set up, you can explore and use the content within Jupyter Notebook or Visual Studio Code.
 
-3. **Project Structure**
+4. **Project Structure**
 ``png:`` Contains satellite images and their corresponding masks in PNG format, divided into train, train_labels, test, test_labels, val, and val_labels subfolders.
 
 ``src:`` Contains Python scripts for data manipulation and model training.
 
-          ``data_utils.py:`` Utility functions for preprocessing and filtering satellite images.
+          `data_utils.py:`` Utility functions for preprocessing and filtering satellite images.
+
           ``model_utils.py:`` Utility functions for defining and training U-Net models.
+          
           ``main.py:`` Script to train different types of U-Net models.
+          
           ``predict.py:`` Script to make predictions using trained models.
 
 ``notebooks:`` Additional notebooks for testing and experimentation.
