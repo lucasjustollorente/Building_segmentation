@@ -83,7 +83,7 @@ To begin, follow these steps to set up the environment and run the scripts:
    Example
    Train a U-Net model from scratch for 50 epochs with simple image preprocessing:
 
-    ```bash
+    
     python src/main.py --model_type from_scratch --epochs 50 --preprocess simple.
 
    ## Results
